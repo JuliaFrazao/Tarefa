@@ -1,5 +1,5 @@
 import streamlit as st
-
+notas= []
 def calcular_media(notas):
     if len(notas) == 0:
         return 0
@@ -21,8 +21,9 @@ def main():
     if len(notas) > 0:
         media = calcular_media(notas)
         st.write(f"Média: {media}")
-
+        
 if __name__ == "__main__":
-    main()
+   notas = [] 
+   main()
     
-notas = []
+
