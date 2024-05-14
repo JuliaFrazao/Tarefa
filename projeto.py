@@ -1,24 +1,23 @@
 import streamlit as st
-notas= []
-def calcular_media(notas):
-    if len(notas) == 0:
-        return 0
-    return sum(notas) / len(notas)
 
-    st.title("Calculadora de Média")
-    st.write("Este é um aplicativo simples para calcular a média de notas.")
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
 
-    # Adicionando notas
-    nota = st.number_input("Digite uma nota:", min_value=0.0, max_value=10.0, step=0.1)
-    if st.button("Adicionar Nota"):
-        notas.append(nota)
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
 
-    # Exibindo notas adicionadas
-    st.write("Notas adicionadas:", notas)
+def main():
+    st.title("Conversor de Temperatura")
 
-    # Calculando e exibindo a média
-    if len(notas) > 0:
-        media = calcular_media(notas)
-        st.write(f"Média: {media}")
-    
+    temperature = st.number_input("Digite a temperatura:")
+    unit = st.selectbox("Selecione a unidade de temperatura:", ("Celsius", "Fahrenheit"))
 
+    if unit == "Celsius":
+        converted_temperature = celsius_to_fahrenheit(temperature)
+        st.write(f"{temperature} graus Celsius é igual a {converted_temperature:.2f} graus Fahrenheit.")
+    else:
+        converted_temperature = fahrenheit_to_celsius(temperature)
+        st.write(f"{temperature} graus Fahrenheit é igual a {converted_temperature:.2f} graus Celsius.")
+
+if __name__ == "__main__":
+    main()
