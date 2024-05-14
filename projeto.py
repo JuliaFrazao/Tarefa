@@ -5,7 +5,6 @@ def calcular_media(notas):
         return 0
     return sum(notas) / len(notas)
 
-def main():
     st.title("Calculadora de Média")
     st.write("Este é um aplicativo simples para calcular a média de notas.")
 
@@ -21,9 +20,5 @@ def main():
     if len(notas) > 0:
         media = calcular_media(notas)
         st.write(f"Média: {media}")
-        
-if __name__ == "__main__":
-   notas = [] 
-   main()
     
 
